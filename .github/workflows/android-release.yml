@@ -1,48 +1,47 @@
-name: Android Release
+name: Multi-App Release
 
 on:
   push:
     tags:
       - 'v*'
 
-permissions:
-  contents: write
-
 jobs:
-  build-release:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout source
+      - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 17
+          distribution: 'temurin'
+          java-version: '17'
 
-      - name: Grant Gradle permission
-        run: chmod +x gradlew
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
 
-      - name: Decode keystore
+      - name: Decode Keystore
+        # 解码一次，放置在根目录或指定位置
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > release.jks
+          echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > release.jks
 
-      - name: Build all Release APKs
+      - name: Build All Release APKs
+        # 运行根目录脚本将编译所有包含的 app 模块
         run: ./gradlew assembleRelease
         env:
-          KEYSTORE_PATH: ${{ github.workspace }}/release.jks
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          RELEASE_STORE_FILE: ../../release.jks # 注意路径，相对于模块目录
+          RELEASE_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
-      - name: Create GitHub Release and upload APKs
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Release ${{ github.ref_name }}
-          tag_name: ${{ github.ref_name }}
+          # 使用通配符匹配所有模块下生成的 APK
           files: |
             **/build/outputs/apk/release/*.apk
+            **/build/outputs/bundle/release/*.aab
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
