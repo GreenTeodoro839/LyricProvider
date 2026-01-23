@@ -39,32 +39,36 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Setup Gradle
+      # 🎯 关键：配置 Gradle 缓存
+      - name: Setup Gradle with Caching
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: wrapper
-          cache-read-only: false
+          # 启用构建缓存
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+          # 启用依赖缓存
+          cache-disabled: false
 
       # 解码 keystore 到项目根目录
       - name: Decode Keystore
         run: |
           echo "${{ secrets.SIGNING_KEY }}" | base64 -d > release.jks
 
-      # 构建：传入签名环境变量
-      - name: Build APKs
+      # 🎯 关键：启用 Gradle 构建缓存
+      - name: Build APKs with Caching
         run: |
           if [ "$BUILD_TYPE" = "release" ]; then
-            ./gradlew assembleRelease
+            ./gradlew assembleRelease --build-cache
           else
-            ./gradlew assembleDebug
+            ./gradlew assembleDebug --build-cache
           fi
         env:
-          RELEASE_STORE_FILE: ../release.jks   # 相对于 app/ 模块的路径
+          RELEASE_STORE_FILE: ../release.jks
           RELEASE_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
           RELEASE_KEY_ALIAS: ${{ secrets.ALIAS }}
           RELEASE_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
-      # 方案1：直接上传 APK 文件
+      # 上传 APK 文件
       - name: Upload APKs to Artifacts
         uses: actions/upload-artifact@v4
         with:
