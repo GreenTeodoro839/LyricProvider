@@ -47,7 +47,7 @@ jobs:
       # 🔑 关键修复：安全解码 keystore（避免 base64 invalid input）
       - name: Decode Keystore from Secret
         run: |
-          printf '%s' ' $ {{ secrets.SIGNING_KEY }}' | base64 -d > release.jks
+          printf '%s' ' ${{ secrets.SIGNING_KEY }}' | base64 -d > release.jks
           if [ ! -s release.jks ]; then
             echo "❌ Failed to decode keystore. Check SIGNING_KEY secret format."
             exit 1
