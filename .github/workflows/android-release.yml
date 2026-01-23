@@ -50,7 +50,7 @@ jobs:
         run: |
           echo "${{ secrets.SIGNING_KEY }}" | base64 -d > release.jks
 
-      # 构建：传入签名环境变量（注意路径是 ../release.jks，因为 Gradle 在子模块执行）
+      # 构建：传入签名环境变量
       - name: Build APKs
         run: |
           if [ "$BUILD_TYPE" = "release" ]; then
@@ -59,31 +59,36 @@ jobs:
             ./gradlew assembleDebug
           fi
         env:
-          RELEASE_STORE_FILE: ../release.jks   # 👈 关键：相对于 app/ 模块的路径
+          RELEASE_STORE_FILE: ../release.jks   # 相对于 app/ 模块的路径
           RELEASE_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
           RELEASE_KEY_ALIAS: ${{ secrets.ALIAS }}
           RELEASE_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
+      # 方案1：直接上传 APK 文件
       - name: Upload APKs to Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.BUILD_TYPE }}-apks
           path: |
             **/build/outputs/apk/${{ env.BUILD_TYPE }}/*.apk
+            **/build/outputs/bundle/${{ env.BUILD_TYPE }}/*.aab
           if-no-files-found: error
 
+      # 创建 GitHub Release
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/') && env.BUILD_TYPE == 'release'
         uses: softprops/action-gh-release@v2
         with:
           files: |
             **/build/outputs/apk/release/*.apk
+            **/build/outputs/bundle/release/*.aab
           generate_release_notes: true
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # 清理临时文件
       - name: Cleanup Keystore
         if: always()
         run: rm -f release.jks || true
