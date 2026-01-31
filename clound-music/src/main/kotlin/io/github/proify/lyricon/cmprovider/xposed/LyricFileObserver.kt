@@ -14,11 +14,15 @@ import java.io.File
 
 class LyricFileObserver(context: Context, private val callback: FileObserverCallback) {
 
-    private val cacheDir = File(context.externalCacheDir, "Cache/Lyric")
+    // 定义监控目录列表，自动过滤空路径并确保存储目录存在
+    private val watchDirs = listOfNotNull(
+        File(context.externalCacheDir, "Cache/Lyric"),
+        context.getExternalFilesDir("LrcDownload")
+    ).onEach { if (!it.exists()) it.mkdirs() }
 
     @Suppress("DEPRECATION")
-    private val fileObserver =
-        object : FileObserver(cacheDir.absolutePath, CREATE or DELETE or MODIFY) {
+    private val observers = watchDirs.map { dir ->
+        object : FileObserver(dir.absolutePath, CREATE or DELETE or MODIFY) {
             override fun onEvent(event: Int, path: String?) {
 
                 //YLog.debug("LyricFileObserver: $event $path")
@@ -30,21 +34,16 @@ class LyricFileObserver(context: Context, private val callback: FileObserverCall
                 callback.onFileChanged(event, file)
             }
         }
-
-    init {
-        if (!cacheDir.exists()) cacheDir.mkdirs()
     }
 
-    fun start() {
-        fileObserver.startWatching()
-    }
+    fun start() = observers.forEach { it.startWatching() }
 
-    fun stop() {
-        fileObserver.stopWatching()
-    }
+    fun stop() = observers.forEach { it.stopWatching() }
 
     fun getFile(id: String): File {
-        return File(cacheDir, id)
+        // 优先返回已存在的文件，否则默认指向第一个目录(Cache)
+        return watchDirs.map { File(it, id) }.firstOrNull { it.exists() }
+            ?: File(watchDirs.first(), id)
     }
 
     interface FileObserverCallback {
