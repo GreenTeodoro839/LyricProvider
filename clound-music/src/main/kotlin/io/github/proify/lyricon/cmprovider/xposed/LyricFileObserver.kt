@@ -12,21 +12,23 @@ import android.content.Context
 import android.os.FileObserver
 import java.io.File
 
-class LyricFileObserver(context: Context, private val callback: FileObserverCallback) {
+@Suppress("DEPRECATION")
+class LyricFileObserver(context: Context, callback: FileObserverCallback) {
 
-    // 定义监控目录列表，自动过滤空路径并确保存储目录存在
-    private val watchDirs = listOfNotNull(
-        File(context.externalCacheDir, "Cache/Lyric"),
-        context.getExternalFilesDir("LrcDownload")
-    ).onEach { if (!it.exists()) it.mkdirs() }
+    private val watchDirs by lazy {
+        listOfNotNull(
+            context.externalCacheDir?.let { File(it, "Cache/Lyric") },
+            context.getExternalFilesDir("LrcDownload")
+        )
+    }
 
-    @Suppress("DEPRECATION")
-    private val observers = watchDirs.map { dir ->
-        object : FileObserver(dir.absolutePath, CREATE or DELETE or MODIFY) {
-            override fun onEvent(event: Int, path: String?) {
+    private val observers: List<FileObserver> by lazy {
+        watchDirs.map { dir ->
+            if (!dir.exists()) dir.mkdirs()
 
-                //YLog.debug("LyricFileObserver: $event $path")
-                if (path.isNullOrEmpty()) return
+            object : FileObserver(dir.absolutePath, CREATE or DELETE or MODIFY) {
+                override fun onEvent(event: Int, path: String?) {
+                    if (path == null) return
 
                 val file = File(cacheDir, path)
                 if (!file.exists() || !file.isFile) return
