@@ -8,6 +8,7 @@
 
     <string-array name="xposed_scope">
         <item>com.kugou.android</item>
+        <item>com.kugou.android.lite</item>
     </string-array>
 
     <string-array name="lyricon_module_tags">

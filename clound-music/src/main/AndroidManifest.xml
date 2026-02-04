@@ -34,9 +34,9 @@
             android:name="lyricon_module_tags"
             android:resource="@array/lyricon_module_tags" />
 
-        <meta-data
-            android:name="lyricon_module_category"
-            android:value="@string/lyricon_module_category" />
+        <!--        <meta-data-->
+        <!--            android:name="lyricon_module_category"-->
+        <!--            android:value="@string/lyricon_module_category" />-->
 
         <meta-data
             android:name="xposedscope"

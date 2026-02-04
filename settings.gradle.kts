@@ -6,6 +6,9 @@
 
 @file:Suppress("UnstableApiUsage")
 
+include(":share:cloudlyric")
+
+
 pluginManagement {
     repositories {
         mavenLocal()
@@ -39,6 +42,9 @@ include(":share:lrckit")
 include(":apple-music")
 include(":clound-music")
 include(":qq-music")
+
 include(":kugou-music")
+include(":kuwo-music")
+
 include(":spotify-music")
 include(":lx-music")

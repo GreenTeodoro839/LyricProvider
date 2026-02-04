@@ -10,6 +10,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class LrcData(
-    val metaData: Map<String, String>,
-    val lines: List<LrcLine>
+    val metaData: Map<String, String> = emptyMap(),
+    val lines: List<LrcLine> = emptyList()
 )

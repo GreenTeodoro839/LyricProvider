@@ -9,13 +9,16 @@ package io.github.proify.lyricon.kgprovider.xposed
 import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.annotation.xposed.InjectYukiHookWithXposed
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
+import io.github.proify.lyricon.kgprovider.xposed.kugou.KuGou
+import io.github.proify.lyricon.kgprovider.xposed.kugou.KuGouLite
 
-@InjectYukiHookWithXposed(modulePackageName = Constants.PROVIDER_PACKAGE_NAME)
+@InjectYukiHookWithXposed(modulePackageName = "io.github.proify.lyricon.kgprovider")
 open class HookEntry : IYukiHookXposedInit {
 
     override fun onHook() {
         YukiHookAPI.encase {
-            loadApp(Constants.MUSIC_PACKAGE_NAME, KuGou)
+            loadApp("com.kugou.android", KuGou())
+            loadApp("com.kugou.android.lite", KuGouLite())
         }
     }
 

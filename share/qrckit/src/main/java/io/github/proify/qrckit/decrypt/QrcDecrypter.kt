@@ -34,7 +34,8 @@ object QrcDecrypter {
 
             decompress(decryptedData).toString(Charsets.UTF_8)
         }.onFailure {
-            it.printStackTrace()
+            // println(encrypted)
+            //it.printStackTrace()
         }.getOrNull()
     }
 
