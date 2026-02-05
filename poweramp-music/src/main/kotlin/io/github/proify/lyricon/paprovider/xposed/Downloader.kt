@@ -13,7 +13,6 @@ import io.github.proify.cloudlyric.SearchOptions
 import io.github.proify.cloudlyric.provider.qq.QQMusicProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
@@ -26,20 +25,18 @@ object Downloader {
         )
     )
 
-    private var currentTask: Job? = null
-    fun search(downloadCallback: DownloadCallback, block: SearchOptions.() -> Unit) {
-        currentTask = scope.launch {
+    fun search(
+        metadata: TrackMetadata,
+        downloadCallback: DownloadCallback,
+        block: SearchOptions.() -> Unit
+    ) {
+        scope.launch {
             try {
                 val response = cloudLyrics.search(block)
-                downloadCallback.onDownloadFinished(response)
+                downloadCallback.onDownloadFinished(metadata, response)
             } catch (e: Exception) {
-                downloadCallback.onDownloadFailed(e)
+                downloadCallback.onDownloadFailed(metadata, e)
             }
         }
-    }
-
-    fun cancel() {
-        currentTask?.cancel()
-        currentTask = null
     }
 }

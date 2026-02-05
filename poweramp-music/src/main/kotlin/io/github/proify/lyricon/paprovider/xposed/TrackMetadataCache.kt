@@ -18,6 +18,7 @@ object TrackMetadataCache {
 
         val title = metadata.getString("title")
         val artist = metadata.getString("artist")
+        val album = metadata.getString("album")
         val duration = metadata.getLong("durMs")
         val path = metadata.getString("path")
 
@@ -26,6 +27,7 @@ object TrackMetadataCache {
             id = id.toString(),
             title = title,
             artist = artist,
+            album = album,
             duration = duration,
             path = path
         )
@@ -42,6 +44,7 @@ data class TrackMetadata(
     val id: String,
     val title: String?,
     val artist: String?,
+    val album: String?,
     val duration: Long,
     val path: String?,
 )

@@ -59,7 +59,9 @@ data class ParsedLyric(
                 end = line.end,
                 duration = line.duration,
                 text = line.text,
-                translation = findBestMatch(line.begin, transIndex),
+                translation = findBestMatch(line.begin, transIndex).takeUnless {
+                    it?.trim() == "//"
+                },
                 roma = findBestMatch(line.begin, romaIndex),
                 words = line.words
             )

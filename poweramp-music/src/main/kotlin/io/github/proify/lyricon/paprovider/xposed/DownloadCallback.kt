@@ -9,6 +9,6 @@ package io.github.proify.lyricon.paprovider.xposed
 import io.github.proify.cloudlyric.ProviderLyrics
 
 interface DownloadCallback {
-    fun onDownloadFinished(response: List<ProviderLyrics>)
-    fun onDownloadFailed(e: Exception)
+    fun onDownloadFinished(metadata: TrackMetadata, response: List<ProviderLyrics>)
+    fun onDownloadFailed(metadata: TrackMetadata, e: Exception)
 }
