@@ -21,9 +21,9 @@ open class HookEntry : IYukiHookXposedInit {
     }
 
     override fun onInit() {
-        super.onInit()
         YukiHookAPI.configs {
             debugLog {
+                isEnable = true
                 tag = "CloudProvider "
             }
         }
