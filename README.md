@@ -1,10 +1,10 @@
 # LyricProvider - 歌词提供器
 
-![Android](https://img.shields.io/badge/Platform-Android-brightgreen?style=flat-square&logo=android&logoColor=white)
-![release](https://img.shields.io/github/v/release/proify/LyricProvider?style=flat-square&color=blue)
-![downloads](https://img.shields.io/github/downloads/proify/LyricProvider/total?style=flat-square&color=orange)
-![license](https://img.shields.io/github/license/proify/LyricProvider?style=flat-square)
-![Last Commit](https://img.shields.io/github/last-commit/proify/lyricon?style=flat-square)
+![Android](https://img.shields.io/badge/Platform-Android-brightgreen?style=flat&logo=android&logoColor=white)
+![release](https://img.shields.io/github/v/release/proify/LyricProvider?style=flat&color=blue)
+![downloads](https://img.shields.io/github/downloads/proify/LyricProvider/total?style=flat&color=orange)
+![license](https://img.shields.io/github/license/proify/LyricProvider?style=flat)
+![Last Commit](https://img.shields.io/github/last-commit/proify/lyricon?style=flat)
 
 **适用于 [词幕](https://github.com/proify/lyricon) 的歌词提供者**
 
