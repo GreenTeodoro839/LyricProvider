@@ -79,4 +79,4 @@ the [Development Guide](https://github.com/proify/lyricon/blob/master/lyric/brid
 
 ### Star Growth
 
-[![Star History Chart](https://api.star-history.com/svg?repos=proify/LyricProvider&type=Date)](https://star-history.com/#proify/LyricProvider&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=proify/LyricProvider&type=Date)](https://star-history.com/#proify/LyricProvider&Date) 
