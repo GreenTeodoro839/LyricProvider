@@ -60,6 +60,7 @@ open class MeizhuProvider(
                 }.hook {
                     after {
                         val state = (args[0] as PlaybackState).state
+                        Log.d(TAG, "state: $state")
                         when (state) {
                             PlaybackState.STATE_PLAYING -> updatePlaybackStatus(true)
                             PlaybackState.STATE_PAUSED,
