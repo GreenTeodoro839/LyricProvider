@@ -6,8 +6,10 @@
 ![Downloads](https://img.shields.io/github/downloads/proify/LyricProvider/total?style=flat&color=orange)
 ![License](https://img.shields.io/github/license/proify/LyricProvider?style=flat)
 ![Last Commit](https://img.shields.io/github/last-commit/proify/LyricProvider?style=flat)
-![English](README-English.md)
 
+<p align="left">
+  <a href="README-English.md"><img src="https://img.shields.io/badge/Document-English-red.svg" alt="EN"></a>
+</p>
 ## 🎵 支持平台
 
 使用 Xposed Hook 方式实现
