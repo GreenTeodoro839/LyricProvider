@@ -12,9 +12,15 @@ import java.io.File
 
 class LyricFileObserver(context: Context, callback: FileObserverCallback) {
 
+    /**
+     * 一些版本的歌词路径
+     */
     private val watchDirs by lazy {
         listOfNotNull(
-            //一些版本的歌词路径
+
+            //9.4.65
+            context.getExternalFilesDir("LrcCache"),
+
             context.getExternalFilesDir("Cache/Lyric"),
             context.externalCacheDir?.let { File(it, "Cache/Lyric") },
 
