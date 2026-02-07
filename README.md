@@ -1,13 +1,11 @@
 # LyricProvider - 歌词提供器
 
-<p align="left">
-  <img src="https://img.shields.io/badge/Platform-Android-brightgreen?style=flat-square&logo=android" alt="Android" />
-  <img src="https://img.shields.io/github/v/release/proify/LyricProvider?style=flat-square&color=blue&logo=github" alt="Release" />
-  <img src="https://img.shields.io/github/languages/top/proify/LyricProvider?style=flat-square&color=7f52ff&logo=kotlin" alt="Language" />
-  <img src="https://img.shields.io/github/downloads/proify/LyricProvider/total?style=flat-square&color=orange" alt="Downloads" />
-  <img src="https://img.shields.io/github/license/proify/LyricProvider?style=flat-square" alt="License" />
-  <img src="https://img.shields.io/github/last-commit/proify/LyricProvider?style=flat-square" alt="Last Commit" />
-</p>
+![Platform](https://img.shields.io/badge/Platform-Android-brightgreen?style=flat&logo=android)
+![Release](https://img.shields.io/github/v/release/proify/LyricProvider?style=flat&color=blue&logo=github)
+![Size](https://img.shields.io/github/repo-size/proify/LyricProvider)
+![Downloads](https://img.shields.io/github/downloads/proify/LyricProvider/total?style=flat&color=orange)
+![License](https://img.shields.io/github/license/proify/LyricProvider?style=flat)
+![Last Commit](https://img.shields.io/github/last-commit/proify/LyricProvider?style=flat)
 
 ## 🎵 支持平台
 
@@ -15,7 +13,7 @@
 
 ### 核心适配列表
 
-| 平台名称               | 标识符 (ID)            | 功能说明                 |
+| 平台名称               | 标识符                 | 功能说明                 |
 |:-------------------|:--------------------|:---------------------|
 | 🍎 **Apple Music** | `apple-music`       | 完美支持动态歌词、翻译歌词        |
 | ☁️ **网易云音乐**       | `163-music`         | 完美支持动态歌词、翻译歌词        |
@@ -67,9 +65,7 @@
 
 ## 🤝 贡献者
 
-<a href="https://github.com/proify/LyricProvider/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=proify/LyricProvider"  alt="Contributors"/>
-</a>
+[![Contributors](https://contrib.rocks/image?repo=proify/LyricProvider)](https://github.com/proify/LyricProvider/graphs/contributors)
 
 ## 📊 数据统计
 
@@ -80,5 +76,3 @@
 ### Star 增长
 
 [![Star History Chart](https://api.star-history.com/svg?repos=proify/LyricProvider&type=Date)](https://star-history.com/#proify/LyricProvider&Date)
-
----
