@@ -7,6 +7,7 @@
 ![License](https://img.shields.io/github/license/proify/LyricProvider?style=flat)
 ![Last Commit](https://img.shields.io/github/last-commit/proify/LyricProvider?style=flat)
 
+<!--suppress ALL -->
 <p align="left">
   <a href="README-English.md"><img src="https://img.shields.io/badge/Document-English-red.svg" alt="EN"></a>
 </p>
@@ -30,10 +31,11 @@
 
 ### 通用/特殊模块
 
-| 模块名称          | 标识符 (ID)          | 适用场景                |
-|:--------------|:------------------|:--------------------|
-| ☁️ **云音乐提供者** | `cloud-provider`  | 通用型，通过搜索匹配在线歌词库     |
-| 📱 **魅族歌词支持** | `meizhu-provider` | 适用于所有已适配魅族状态栏歌词的播放器 |
+| 模块名称          | 标识符 (ID)          | 适用场景              |
+|:--------------|:------------------|:------------------|
+| ☁️ **云音乐提供者** | `cloud-provider`  | 通用型，通过搜索匹配在线歌词库   |
+| 📱 **魅族歌词支持** | `meizhu-provider` | 适用于已适配魅族状态栏歌词的播放器 |
+| 🧂 **车载歌词支持** | `car-provider`    | 适用于已适配车载歌词适配的播放器  |
 
 ### 🚀 原生支持 (无需插件)
 
