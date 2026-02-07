@@ -9,11 +9,6 @@
   <img src="https://img.shields.io/github/last-commit/proify/LyricProvider?style=flat-square" alt="Last Commit" />
 </p>
 
-> **✨ 词幕 (Lyricon) 官方扩展组件**：基于 Xposed
-> 技术适配主流音乐客户端，为 [词幕](https://github.com/proify/lyricon) 提供实时、高精度的歌词数据流。
-
----
-
 ## 🎵 支持平台
 
 使用 Xposed Hook 方式实现，建议配合 **LSPosed** 使用。
@@ -70,6 +65,12 @@
 
 ---
 
+## 🤝 贡献者
+
+<a href="https://github.com/proify/LyricProvider/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=proify/LyricProvider"  alt="Contributors"/>
+</a>
+
 ## 📊 数据统计
 
 ### 访问趋势
@@ -81,22 +82,3 @@
 [![Star History Chart](https://api.star-history.com/svg?repos=proify/LyricProvider&type=Date)](https://star-history.com/#proify/LyricProvider&Date)
 
 ---
-
-## 🤝 贡献者
-
-感谢所有为 LyricProvider 做出贡献的小伙伴！
-
-<a href="https://github.com/proify/LyricProvider/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=proify/LyricProvider" />
-</a>
-
----
-
-<p align="center">
-  Released under the <b>Apache License 2.0</b><br>
-  Copyright © 2024-2026 <a href="https://github.com/proify">Proify</a>
-</p>
-
-<p align="center">
-  <a href="# LyricProvider - 歌词提供器">⬆ 返回顶部</a>
-</p>
