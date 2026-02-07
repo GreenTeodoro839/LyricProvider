@@ -44,8 +44,8 @@ The following players have built-in support for the Lyricon protocol and work ou
 ## 📥 Installation
 
 > [!IMPORTANT]
-> This is an **extension package**. You must have the **[Lyricon](https://github.com/proify/lyricon)
-** main application installed for this to function.
+> This is an **extension package**. You must have the [Lyricon](https://github.com/proify/lyricon)
+> main application installed for this to function.
 
 1. **Download**: Grab the latest APK from
    the [Releases page](https://github.com/proify/LyricProvider/releases).
