@@ -42,21 +42,17 @@ include(":share:cloudlyric")
 include(":share:meizu-provider")
 include(":share:car-provider")
 
-//apps
 include(":cloud-provider")
 include(":meizu-provider")
 include(":car-provider")
 
 include(":apple-music")
 include(":163-music")
-
-//腾讯系
 include(":qq-music")
 include(":kugou-music")
 include(":kuwo-music")
-
 include(":spotify-music")
-
 include(":lx-music")
 include(":poweramp-music")
 include(":salt-player-music")
+include(":qishui-music")

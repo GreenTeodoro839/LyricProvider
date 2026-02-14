@@ -27,6 +27,7 @@
 | 🎧 **Spotify**     | `spotify-music`     | 目前仅支持标准歌词            |
 | ⚡ **Poweramp**     | `poweramp-music`    | 支持网络匹配及本地内嵌歌词        |
 | 🧂 **Salt 音乐**     | `salt-player-music` | 基于魅族标准歌词接口适配         |
+| 🎵 **汽水音乐**        | `qishui-music`      | 支持动态歌词、翻译歌词          |
 
 ### 通用/特殊模块
 
@@ -41,6 +42,7 @@
 以下播放器已原生集成此协议，可直接配合词幕使用：
 
 * **光锥音乐**: [官方主页](https://coneplayer.trantor.ink/)
+* **Flamingo**
 
 ---
 

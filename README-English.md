@@ -25,6 +25,7 @@ music applications.
 | 🐶 **Kugou / Lite**        | `kugou-music`       | **Requires "Car Mode" enabled in-app** |
 | 📻 **Kuwo Music**          | `kuwo-music`        | **Requires "Car Mode" enabled in-app** |
 | 🧂 **Salt Player**         | `salt-player-music` | Uses Flyme (Meizu) Lyric standard      |
+| 🎵 **汽水音乐**                | `qishui-music`      | Dynamic lyrics, Translations           |
 
 ### Universal & Special Modules
 
@@ -39,6 +40,7 @@ music applications.
 The following players have built-in support for the Lyricon protocol and work out of the box:
 
 * **ConePlayer (光锥音乐)**: [Official Homepage](https://coneplayer.trantor.ink/)
+* **Flamingo**
 
 ---
 
