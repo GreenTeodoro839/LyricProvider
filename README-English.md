@@ -74,12 +74,6 @@ the [Development Guide](https://github.com/proify/lyricon/blob/master/lyric/brid
 
 [![Contributors](https://contrib.rocks/image?repo=proify/LyricProvider)](https://github.com/proify/LyricProvider/graphs/contributors)
 
-## 📊 Analytics
-
-### Traffic Trends
-
-![Visitors](https://count.getloli.com/get/@proify_LyricProvider?theme=minecraft)
-
 ### Star Growth
 
 <a href="https://star-history.com/#proify/LyricProvider&Date">
@@ -89,3 +83,7 @@ the [Development Guide](https://github.com/proify/lyricon/blob/master/lyric/brid
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=proify/LyricProvider&type=Date" />
  </picture>
 </a>
+
+### Traffic Trends
+
+![Visitors](https://count.getloli.com/get/@proify_LyricProvider?theme=minecraft)

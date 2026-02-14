@@ -71,12 +71,6 @@
 
 [![Contributors](https://contrib.rocks/image?repo=proify/LyricProvider)](https://github.com/proify/LyricProvider/graphs/contributors)
 
-## 📊 数据统计
-
-### 访问趋势
-
-![Visitors](https://count.getloli.com/get/@proify_LyricProvider?theme=minecraft)
-
 ### Star 增长
 
 <a href="https://star-history.com/#proify/LyricProvider&Date">
@@ -86,3 +80,7 @@
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=proify/LyricProvider&type=Date" />
  </picture>
 </a>
+
+### 访问趋势
+
+![Visitors](https://count.getloli.com/get/@proify_LyricProvider?theme=minecraft)
